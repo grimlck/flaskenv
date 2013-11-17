@@ -7,7 +7,7 @@ import sys
 COMMANDS = {'venv': 'virtualenv --no-site-packages venv'}
 FLASK_DIRECTORIES = ['app/static', 'app/templates']
 FLASK_FILES = {
-        'run.py': '#!/usr/bin/env python\n\napp.run(debug=True)',
+        'run.py': '#!/usr/bin/env python\nfrom app import app\n\napp.run(debug=True)',
         'app/__init__.py': '''from flask import Flask\n\napp = Flask(__name__)\nfrom app import views''',
         'app/views.py': '''from app import app\n\n@app.route('/')\n@app.route('/index')\ndef index(): pass'''
 }
