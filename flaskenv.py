@@ -121,6 +121,7 @@ def main():
             if create_directories(sys.argv[1]) == 0:
                 create_files(sys.argv[1])
                 os.chdir(sys.argv[1])
+                os.chmod('run.py', 0o755)
             create_virtualenv()
             post_creation()
 
